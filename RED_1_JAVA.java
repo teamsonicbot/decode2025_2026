@@ -52,7 +52,7 @@ public class RED_1_JAVA extends LinearOpMode {
     private static final double CLOSE_RPM = 2700;
     private static final double MED_RPM   = 2000;  // NEW VERSION ONLY fOR THIS CODE
     private static final double FAR_RPM   = 2100;
-    private static final double EXTRA_FAR_RPM = 2450;
+    private static final double EXTRA_FAR_RPM = 2511;
 
 
     private static final double CLOSE_ANG = 0.25;
@@ -130,44 +130,56 @@ public class RED_1_JAVA extends LinearOpMode {
 
         if (opModeIsActive()) {
 
-
+//Position shot
             movingForward(0.6, 1300);
-            strafing(0.7, 200);
+            strafing(0.7, -200);
 
-
+//Shoot
             sleep(3);
             shootMED();
             sleep(3500);
-            strafing(0.8, -200);
 
-
+            //Moving to first set artifacts
+            strafing(0.8, 200);
             rotating(0.8, -1500);
             stopLauncher();
-            strafing(0.8, 880);
+            strafing(0.8, 950);
+
+            //Picking up artifacts
             startIntakes();
-
-
-            movingForward(0.6, 1400);
+            movingForward(0.4, 1400);
             movingForward(0.8, -1400);
-            strafing(0.8,-300);
+
+// Position shot
+            strafing(0.8,-370);
             rotating(0.8,1450);
             movingForward(0.6, -100);
-            strafing(0.8, 200);
+            strafing(0.8, -200);
+
+            //Shoot
             shootMED();
             sleep(3000);
-            strafing(0.8, -200);
-            rotating(0.8,-1450);
-            strafing(0.8,1300);
+            stopLauncher();
+
+//Moving to next set of artifacts of TeleOp
+            strafing(0.8, 200);
+            rotating(0.8,-1440);
+            strafing(0.8,1471);
 
 
-
-
-
-
-
-
-
-
+            //The following code can be used or not bc it shoots extra set
+            startIntakes();
+            movingForward(0.2, 1250);
+            movingForward(0.6, -1250);
+            strafing(0.6, -1300);
+            rotating(0.5,1411);
+            strafing(0.7,-200);
+            //Shoot
+            shootMED();
+            sleep(3200);
+            stopLauncher();
+            stopIntakes();
+            strafing(0.8, -900);
         }
     }
 
@@ -235,8 +247,6 @@ public class RED_1_JAVA extends LinearOpMode {
         double voltage = battery.getVoltage();
         if (voltage <= 0) voltage = NOMINAL_VOLTAGE;
         double compensatedF = kF * (NOMINAL_VOLTAGE / voltage);
-
-
 
 
         leftLauncher.setVelocityPIDFCoefficients(kP, kI, kD, compensatedF);

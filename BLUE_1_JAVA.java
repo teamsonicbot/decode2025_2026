@@ -143,15 +143,15 @@ public class BLUE_1_JAVA extends LinearOpMode {
             strafing(0.8, 200);
             rotating(0.8, 1500);
             stopLauncher();
-            strafing(0.8, -880);
+            strafing(0.8, -950);
 
  //Picking up artifacts
             startIntakes();
-            movingForward(0.6, 1400);
+            movingForward(0.4, 1400);
             movingForward(0.8, -1400);
 
 // Position shot
-            strafing(0.8,300);
+            strafing(0.8,370);
             rotating(0.8,-1450);
             movingForward(0.6, -100);
             strafing(0.8, -200);
@@ -163,20 +163,23 @@ public class BLUE_1_JAVA extends LinearOpMode {
 
 //Moving to next set of artifacts of TeleOp
             strafing(0.8, 200);
-            rotating(0.8,1450);
+            rotating(0.8,1440);
             strafing(0.8,-1511);
 
- //The following code can be used or not bc it shoots extra set
 
-            movingForward(0.2, 1600);
-            movingForward(0.6, -1600);
+ //The following code can be used or not bc it shoots extra set
+            startIntakes();
+            movingForward(0.2, 1250);
+            movingForward(0.6, -1250);
             strafing(0.6, 1300);
-            rotating(0.5,-1300);
+            rotating(0.5,-1411);
             strafing(0.7,-200);
  //Shoot
             shootMED();
-            sleep(3500);
+            sleep(3200);
             stopLauncher();
+            stopIntakes();
+            strafing(0.8, 900);
         }
     }
 

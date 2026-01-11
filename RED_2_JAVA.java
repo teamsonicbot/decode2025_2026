@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode;
-//INCOMPLETE
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
@@ -29,11 +29,11 @@ public class RED_2_JAVA extends LinearOpMode {
     static final double CLOSE_RPM = 3000;
     static final double MED_RPM = 3000;
     static final double FAR_RPM = 2100;
-    static final double EXTRA_FAR_RPM = 2655;
+    static final double EXTRA_FAR_RPM = 2795;
     static final double CLOSE_ANG = 0.25;
     static final double MED_ANG = 0.20;
     static final double FAR_ANG = 0.15;
-    static final double EXTRA_FAR_ANG = 0.145;
+    static final double EXTRA_FAR_ANG = 0.134;
     static final double kP = 0.0009;
     static final double kF = 18.0;
     static final double NOMINAL_VOLTAGE = 12.0;
@@ -109,8 +109,8 @@ public class RED_2_JAVA extends LinearOpMode {
         waitForStart();
         if (opModeIsActive()) {
             // Put loop blocks here.
-            moving_backward(0.3, 100);
-            rotate(0.3, 230);
+            moving_backward(0.3, 220);
+            rotate(0.3, 223);
             Intake();
 
             //FIRST SHOT
@@ -119,13 +119,15 @@ public class RED_2_JAVA extends LinearOpMode {
             sleep(3000);
             bluefan.setPower(0);
 
-            rotate(0.3, -1180);
-            strafing_right(0.3, -1090);
-            moving_forward_(0.3, 700);
-            moving_forward_(0.2, 1000);
-            moving_backward(0.3, 1500);
-            strafing_right(0.3, 870);
-            rotate(0.3, 1200);
+            rotate(0.6, -1131);
+            strafing_right(0.5, -950);
+            sleep(1000);
+            moving_forward_(0.25, 1600);
+            sleep(1000);
+            moving_backward(0.5, 1500);
+            strafing_right(0.4, 860);
+            rotate(0.5, 1220);
+            moving_forward_(0.5, 150);
 
             //SECOND SHOT
             setExtraFarShot();
@@ -133,11 +135,8 @@ public class RED_2_JAVA extends LinearOpMode {
             sleep(3000);
             bluefan.setPower(0);
 
-            rotate(0.3, -1150);
-            strafing_right(0.3, -2000);
-            moving_forward_(0.3, 600);
-            moving_forward_(0.2, 900);
-            moving_backward(0.3, 1300);
+            rotate(0.3, -1185);
+            strafing_right(0.5, -1850);
 
         }
     }
